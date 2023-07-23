@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<fieldset layout:fragment="content">
+    <legend>Students</legend>
+<table class="table table-sm table-stripped">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>ID Number</th>
+        <th>DOB</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="student:${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.surname}"></td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${student.phone}"></td>
+        <td th:text="${student.idNumber}"></td>
+        <td th:text="${#dates.format(student.dob, 'dd-MMM-yyyy')}"></td>
+        <td th:text="${student.address}"></td>
+    </tr>
+    </tbody>
+</table>
+</fieldset>
+</body>
+</html>
